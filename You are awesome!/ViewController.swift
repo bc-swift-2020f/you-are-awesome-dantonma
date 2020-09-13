@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     var imageNumber = 0
     var messageNumber = 0
+    let totalNuberOfImages = 9
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +22,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func messageButtonPressed(_ sender: UIButton) {
-        let messages = ["You are awesome", "you are great", "you da bomb", "fabluous? That's YOU"]
+        let messages = ["You are awesome", "you are great", "you da bomb", "when the genious bar needs help, they call you", "fabluous? That's YOU", "You've got the design skills of Jony Ives"]
+        
+        messageLabel.text = messages[Int.random(in: 0...messages.count - 1)]
+        imageView.image = UIImage(named: "image\(Int.random(in: 0...totalNuberOfImages))")
 
-        messageLabel.text = messages[messageNumber]
-        messageNumber += 1
-        if messageNumber == messages.count{
-            messageNumber = 0
+//        messageLabel.text = messages[messageNumber]
+//        messageNumber += 1
+//        if messageNumber == messages.count{
+//            messageNumber = 0
         }
 //        let imageName = "image" + String(imageNumber)
-        let imageName = "image\(imageNumber)"
-        imageView.image = UIImage(named: imageName)
-        imageNumber = imageNumber + 1
-        if imageNumber == 10 {
-            imageNumber = 0
-        }
+//        let imageName = "image\(imageNumber)"
+//        imageView.image = UIImage(named: imageName)
+//        imageNumber = imageNumber + 1
+//        if imageNumber == 10 {
+//            imageNumber = 0
+//        }
         
         //        let awesomeMessage = "You Are Awesome!"
         //        let greatMessage = "You Are Great!"
@@ -52,5 +56,5 @@ class ViewController: UIViewController {
         //        }
     }
     
-}
+
 

@@ -38,41 +38,26 @@ class ViewController: UIViewController {
              }
     }
     
-    func nonRepeatingRandom(originalNumber: Int, upperLimit: Int){
-        var Number: Int
-               repeat {
-                   newNumber = Int.random(in: 0...upperLimit)
-               } while originalNumber == newNumber
+    func nonRepeatingRandom(originalNumber: Int, upperLimit: Int)-> Int{
+        var newNumber = Int()
+        repeat {
+            newNumber = Int.random(in: 0...upperLimit)
+        } while originalNumber == newNumber
+        return newNumber
     }
     
+    
     @IBAction func messageButtonPressed(_ sender: UIButton) {
-        let messages = ["You are awesome", "you are great", "you da bomb", "when the genious bar needs help, they call you", "fabluous? That's YOU", "You've got the design skills of Jony Ives"]
+        let messages = ["You are Awesome!", "You Are Great", "You are Fantastic", "When the Genius Bar Needs Help, they call YOU", "Farbulous? That's You!", "You've Got the Design Skills of Jony Ive"]
         
-        var newMessageNumber: Int
-        repeat {
-            newMessageNumber = Int.random(in: 0...messages.count - 1)
-        } while messageNumber == newMessageNumber
-        messageNumber   = newMessageNumber
+        messageNumber = nonRepeatingRandom(originalNumber: messageNumber, upperLimit: messages.count-1)
         messageLabel.text = messages[messageNumber]
         
-        
-        var newImageNumber: Int
-        repeat {
-            newImageNumber = Int.random(in: 0...totalNuberOfImages)
-        } while imageNumber == newImageNumber
-        imageNumber = newImageNumber
+        imageNumber = nonRepeatingRandom(originalNumber: imageNumber, upperLimit: totalNuberOfImages-1)
         imageView.image = UIImage(named: "image\(imageNumber)")
         
-        var newSoundNumber: Int
-        repeat {
-            newSoundNumber = Int.random(in: 0...totalNumberOfSounds-1)
-        } while soundNumber == newSoundNumber
-        soundNumber = newSoundNumber
-        imageView.image = UIImage(named: "image\(imageNumber)")
-        
+        soundNumber = nonRepeatingRandom(originalNumber: soundNumber, upperLimit: totalNumberOfSounds-1)
         playSound(name: "sound\(soundNumber)")
-
-
     }
     
 
